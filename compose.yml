@@ -1,0 +1,15 @@
+services:
+  mysql:
+    image: mysql:latest
+    container_name: php-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: just_php
+    ports:
+      - "3306:3306"
+    volumes:
+      - just_php:/var/lib/mysql
+      - ./docker:/docker-entrypoint-initdb.d
+
+volumes:
+  just_php:
